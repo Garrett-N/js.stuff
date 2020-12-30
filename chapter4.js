@@ -88,3 +88,33 @@ for (let entry of JOURNAL) {
     }
 }
 console.log(phi(tableFor("peanut teeth", JOURNAL)));
+
+// array loops
+for (let i=0; i<JOURNAL.length; i++) {
+    let entry = JOURNAL[i];
+    // do soemthing with entry...
+}
+// array loop - simpler way modern JS
+for (let entry of JOURNAL) {
+    console.log(`${entry.events.length} events.`);
+}
+
+// shift & unshift
+let todoList = [];
+function remember(task) {
+    todoList.push(task);
+}
+function getTask() {
+    return todoList.shift();
+}
+function rememberUrgently(task){
+    todoList.unshift(task);
+}
+remember("change laundry");
+remember("takeout trash");
+remember("delete porn");
+remember("drink beer");
+console.log(todoList);
+console.log(getTask());
+rememberUrgently("urgent task");
+console.log(todoList);
