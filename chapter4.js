@@ -118,3 +118,21 @@ console.log(todoList);
 console.log(getTask());
 rememberUrgently("urgent task");
 console.log(todoList);
+
+// rest parameters
+function max(...numbers) {
+    let result = -Infinity;
+    for (let number of numbers) {
+        if (number>result) result = number;
+    }
+    return result;
+}
+console.log(max(4, 7, -12, 13, 9, 8, 4));
+
+// Math
+function randomPointOnCircle(radius) {
+    let angle = Math.random() * 2 * Math.PI;
+    return {x: radius * Math.cos(angle),
+            y: radius * Math.sin(angle)};
+}
+console.log(randomPointOnCircle(1));
