@@ -61,7 +61,7 @@ function reduce(array, combine, start) {
     }
     return current;
 }
-console.log(reduce([1,2,3,4], (a,b) => a+b, 0));
+console.log("reduce:"+reduce([1,2,3,4], (a,b) => a+b, 0));
 
 function characterCount(script) {
     return script.ranges.reduce((count, [from, to]) => {
@@ -71,3 +71,13 @@ function characterCount(script) {
 console.log(SCRIPTS.reduce((a, b) => {
     return characterCount(a) < characterCount(b) ? b:a;
 }))
+
+// composability
+let biggest = null;
+for (let script of SCRIPTS) {
+    if (biggest == null ||
+        characterCount(biggest) < characterCount(script)) {
+        biggest = script;
+    }
+}
+console.log("composability: "+biggest);
